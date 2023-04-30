@@ -7,13 +7,16 @@ var lat = '47.52978'
 var lng = '19.08068'
 
 var map = L.map('map').setView([lat, lng], 13)
+sendGetRequest()
 
 async function sendGetRequest() {
+  if (!inputField.value) {
+    inputField.value = '92.249.207.29'
+  }
   const response = await fetch(
     `https://geo.ipify.org/api/v2/country,city?apiKey=at_DmsiDI9h5sPJyuywZ9uJlzXYa2Jd5&ipAddress=${inputField.value}&domain=${inputField.value}`
   )
   const data = await response.json()
-  console.log(data)
   let lat = data.location.lat
   let lng = data.location.lng
   result[0].innerText = data.ip
