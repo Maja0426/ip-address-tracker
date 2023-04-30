@@ -1,0 +1,234 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap');
+
+/* ******************************************* */
+/* https://piccalil.li/blog/a-modern-css-reset */
+/* ******************************************* */
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* GLOBAL STYLE */
+
+:root {
+  --darker-grey: hsl(0, 0%, 17%);
+  --dark-grey: hsl(0, 0%, 59%);
+}
+
+body {
+  font-family: 'Rubik', sans-serif;
+  color: var(--darker-grey);
+}
+
+header {
+  position: relative;
+  height: 35vh;
+  background: url(images/pattern-bg-desktop.png) no-repeat center/cover;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  margin-inline: auto;
+}
+
+hr {
+  border: none;
+  width: 1px;
+  height: 100%;
+  background-color: var(--dark-grey);
+}
+
+::placeholder {
+  color: var(--dark-grey);
+}
+
+h1 {
+  margin-block: 2rem;
+  font-weight: 500;
+}
+
+form {
+  display: flex;
+  justify-content: center;
+  width: 60%;
+  margin-inline: auto;
+}
+
+#ip-input {
+  width: 70%;
+  padding: 1rem;
+  border-radius: 15px 0 0 15px;
+  border: none;
+}
+
+/* #ip-input:active,
+#ip-input:focus {
+  outline: none;
+  box-shadow: inset 2px 2px 0 black, inset -2px -2px 0 black;
+} */
+
+.btn {
+  width: 3.5rem;
+  display: grid;
+  place-content: center;
+  background-color: black;
+  border: none;
+  border-radius: 0 15px 15px 0;
+  cursor: pointer;
+}
+
+.results-container {
+  position: absolute;
+  display: flex;
+  width: 80%;
+  background-color: white;
+  border-radius: 15px;
+  color: black;
+  padding: 2rem;
+  gap: 2rem;
+  bottom: -8.5vh;
+  z-index: 100;
+  width: 70%;
+  height: 10rem;
+}
+
+.result-block {
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.result-block p {
+  color: var(--dark-grey);
+  font-size: 0.7rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.result-block h2 {
+  font-weight: 500;
+  font-size: 1.3rem;
+}
+
+#map {
+  height: 65vh;
+  z-index: 1;
+}
+
+.leaflet-control-container {
+  display: none;
+}
+
+/* TABLET / MOBILE */
+
+@media (max-width: 1024px) {
+  header {
+    height: 40vh;
+  }
+
+  form {
+    width: 90%;
+  }
+
+  #ip-input {
+    width: 90%;
+  }
+  .results-container {
+    flex-direction: column;
+    width: 90%;
+    height: 18rem;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+    gap: 0.5rem;
+    top: 60%;
+    padding: 1rem;
+  }
+
+  hr {
+    display: none;
+  }
+
+  .result-block {
+    width: 100%;
+    justify-content: start;
+    gap: 0;
+  }
+  #map {
+    height: 60vh;
+  }
+}
